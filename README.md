@@ -4,7 +4,7 @@
 **Author:** Yanhong (Linda) Miao  
 **Supervisor:** Dr. Damiano Torre  
 **Institution:** University of Washington Tacoma — School of Engineering and Technology  
-**Course:** TCSS 499 Independent Study (2025–2026)
+**Course:** TCSS 499 Independent Study (Winter & Spring 2026)
 
 ---
 
