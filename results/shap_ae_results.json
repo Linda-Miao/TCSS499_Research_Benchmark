@@ -1,0 +1,19 @@
+{
+  "model": "Autoencoder",
+  "xai_method": "SHAP KernelExplainer",
+  "sample_size": 50,
+  "background_size": 100,
+  "shap_time_seconds": 41.7,
+  "top_10_features": {
+    "FIN Flag Count": 0.027515,
+    "Packet Length Variance": 0.019858,
+    "Packet Length Std": 0.010165,
+    "URG Flag Count": 0.009884,
+    "Total Length of Bwd Packets": 0.009454,
+    "Bwd Packet Length Std": 0.009126,
+    "min_seg_size_forward": 0.00774,
+    "Packet Length Mean": 0.006014,
+    "Idle Max": 0.00572,
+    "Bwd IAT Min": 0.005677
+  }
+}

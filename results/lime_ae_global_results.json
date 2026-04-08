@@ -1,0 +1,23 @@
+{
+  "model": "Autoencoder",
+  "xai_method": "LIME",
+  "global_sample_size": 50,
+  "total_time_seconds": 36.47,
+  "top_10_features": {
+    "RST Flag Count": 11.046479,
+    "CWE Flag Count": 10.667515,
+    "Fwd URG Flags": 10.545679,
+    "ECE Flag Count": 7.322578,
+    "FIN Flag Count": 0.335365,
+    "Idle Std": 0.202676,
+    "Fwd PSH Flags": 0.192351,
+    "SYN Flag Count": 0.181486,
+    "Active Std": 0.15401,
+    "URG Flag Count": 0.147259,
+    "Idle Max": 0.071964,
+    "Idle Mean": 0.07088,
+    "min_seg_size_forward": 0.066775,
+    "Active Max": 0.066698,
+    "Bwd Packets/s": 0.061409
+  }
+}
