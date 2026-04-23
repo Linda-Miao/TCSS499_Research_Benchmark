@@ -1,0 +1,98 @@
+{
+    "method": "LIME",
+    "model": "Random Forest",
+    "dataset": "CICIDS2017",
+    "instance_0": {
+        "true_label": "BENIGN",
+        "predicted": "BENIGN",
+        "time_seconds": 1.26,
+        "top_features": [
+            [
+                "ECE Flag Count <= -0.02",
+                0.0059358941150415
+            ],
+            [
+                "Destination Port <= -0.44",
+                -0.005880846685668196
+            ],
+            [
+                "-0.12 < Bwd IAT Min <= -0.12",
+                -0.004200042111051432
+            ],
+            [
+                "-0.41 < Bwd Packet Length Max <= -0.30",
+                0.003795075077350191
+            ],
+            [
+                "-0.20 < Bwd IAT Mean <= -0.20",
+                -0.0037425615532257163
+            ],
+            [
+                "PSH Flag Count <= -0.65",
+                -0.003529649862179016
+            ],
+            [
+                "Bwd Packet Length Std <= -0.40",
+                0.003527204873985752
+            ],
+            [
+                "-0.39 < Avg Bwd Segment Size <= -0.21",
+                -0.002612985587336175
+            ],
+            [
+                "act_data_pkt_fwd > -0.01",
+                0.002177940718429748
+            ],
+            [
+                "Fwd PSH Flags <= -0.22",
+                -0.0017186558875323106
+            ]
+        ]
+    },
+    "instance_ddos": {
+        "true_label": "DDoS",
+        "predicted": "DDoS",
+        "top_features": [
+            [
+                "-0.44 < Destination Port <= -0.44",
+                -0.004992585097449021
+            ],
+            [
+                "Bwd Packet Length Std <= -0.40",
+                0.004866127882639757
+            ],
+            [
+                "RST Flag Count <= -0.02",
+                0.004130976476760212
+            ],
+            [
+                "PSH Flag Count <= -0.65",
+                -0.003937853306129461
+            ],
+            [
+                "Total Length of Bwd Packets <= -0.01",
+                -0.003834402903874676
+            ],
+            [
+                "Fwd Packet Length Mean <= -0.28",
+                -0.0033651515076713505
+            ],
+            [
+                "Fwd Packet Length Max <= -0.28",
+                -0.003283948735788771
+            ],
+            [
+                "Bwd IAT Mean <= -0.20",
+                0.003090078914459457
+            ],
+            [
+                "ECE Flag Count <= -0.02",
+                0.002979899289041295
+            ],
+            [
+                "Active Min > -0.10",
+                -0.0027945833387878188
+            ]
+        ]
+    }
+}

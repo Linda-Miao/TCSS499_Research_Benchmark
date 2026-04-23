@@ -1,0 +1,91 @@
+{
+  "model": "Autoencoder",
+  "xai_method": "LIME",
+  "benign_explanation_time": 1.03,
+  "attack_explanation_time": 0.84,
+  "attack_type": "PortScan",
+  "benign_top_features": [
+    [
+      "Fwd URG Flags <= -0.01",
+      -25.881807050488327
+    ],
+    [
+      "ECE Flag Count <= -0.02",
+      -10.364699051603635
+    ],
+    [
+      "FIN Flag Count <= -0.19",
+      -0.3461633993627455
+    ],
+    [
+      "Fwd PSH Flags <= -0.22",
+      -0.2197033758588006
+    ],
+    [
+      "Idle Std <= -0.11",
+      -0.18107575798878764
+    ],
+    [
+      "Active Std <= -0.10",
+      -0.1576091434941796
+    ],
+    [
+      "SYN Flag Count <= -0.22",
+      -0.13555189873225693
+    ],
+    [
+      "Bwd Packet Length Min > 0.52",
+      0.12992648681489197
+    ],
+    [
+      "URG Flag Count <= -0.32",
+      -0.11825995404802747
+    ],
+    [
+      "Idle Mean <= -0.35",
+      -0.0911365041564754
+    ]
+  ],
+  "attack_top_features": [
+    [
+      "CWE Flag Count <= -0.01",
+      -33.397433785262926
+    ],
+    [
+      "Fwd URG Flags <= -0.01",
+      -23.948187366172696
+    ],
+    [
+      "ECE Flag Count <= -0.02",
+      -14.929854128023585
+    ],
+    [
+      "FIN Flag Count <= -0.19",
+      -0.4771680732579913
+    ],
+    [
+      "Idle Std <= -0.11",
+      -0.21439506395798064
+    ],
+    [
+      "Fwd PSH Flags <= -0.22",
+      -0.20214773885843468
+    ],
+    [
+      "Flow Packets/s > -0.19",
+      0.14374272177606326
+    ],
+    [
+      "URG Flag Count <= -0.32",
+      -0.11134534896357015
+    ],
+    [
+      "Bwd Packets/s > 0.01",
+      0.10398890620763662
+    ],
+    [
+      "SYN Flag Count <= -0.22",
+      -0.09003457392829342
+    ]
+  ]
+}

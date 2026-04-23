@@ -1,0 +1,24 @@
+{
+  "model": "1D-CNN",
+  "xai_method": "Permutation Importance",
+  "sample_size": 10000,
+  "n_repeats": 10,
+  "time_seconds": 1191.17,
+  "top_15_features": {
+    "Bwd Packets/s": 0.04288,
+    "Protocol": 0.03301,
+    "ACK Flag Count": 0.03085,
+    "Down/Up Ratio": 0.03068,
+    "Min Packet Length": 0.02259,
+    "Init_Win_bytes_forward": 0.02116,
+    "PSH Flag Count": 0.02048,
+    "Destination Port": 0.01871,
+    "Bwd Packet Length Min": 0.01816,
+    "Source Port": 0.01738,
+    "Fwd Packet Length Std": 0.01297,
+    "Bwd Packet Length Std": 0.00992,
+    "URG Flag Count": 0.00956,
+    "Flow Packets/s": 0.00898,
+    "Fwd IAT Total": 0.00866
+  }
+}

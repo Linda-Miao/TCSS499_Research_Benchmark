@@ -1,0 +1,49 @@
+{
+    "method": "SHAP",
+    "model": "1D-CNN",
+    "dataset": "KernelExplainer",
+    "samples": 100,
+    "time_seconds": 119.27,
+    "top_10_features": [
+        {
+            "feature": "Bwd Packets/s",
+            "importance": 0.004155512531542246
+        },
+        {
+            "feature": "PSH Flag Count",
+            "importance": 0.003384857427963343
+        },
+        {
+            "feature": "Protocol",
+            "importance": 0.003212154662163695
+        },
+        {
+            "feature": "Bwd Packet Length Std",
+            "importance": 0.002706011204865591
+        },
+        {
+            "feature": "Init_Win_bytes_forward",
+            "importance": 0.002213316000645907
+        },
+        {
+            "feature": "Bwd Packet Length Min",
+            "importance": 0.0021014127576920298
+        },
+        {
+            "feature": "Destination Port",
+            "importance": 0.002082805616830375
+        },
+        {
+            "feature": "Down/Up Ratio",
+            "importance": 0.0020620477109789116
+        },
+        {
+            "feature": "Source Port",
+            "importance": 0.001918761565228873
+        },
+        {
+            "feature": "Min Packet Length",
+            "importance": 0.0017678729057468282
+        }
+    ]
+}
