@@ -13,21 +13,38 @@
 This repository implements a benchmark framework that applies post-hoc Explainable AI (XAI) methods to machine learning-based Intrusion Detection Systems (IDS), evaluated using both **machine learning metrics** and **software engineering metrics**.
 
 The framework addresses three gaps identified in the literature:
-1. No standardized benchmark comparing SHAP, LIME, and Grad-CAM together
+1. No standardized benchmark comparing multiple XAI methods within a unified evaluation framework
 2. No XAI evaluation using software engineering metrics (maintainability, reproducibility, explanation clarity)
 3. No XAI-based IDS evaluation targeting autonomous platforms (drones, ground robots, autonomous vehicles)
 
 ---
 
-## Dataset
+## Current Status
 
-**CICIDS2017** (Canadian Institute for Cybersecurity)
+| Phase | Dataset | Status |
+|---|---|---|
+| Phase 1 | CICIDS2017 | ✅ Complete |
+| Phase 2 | UAV Attack Dataset | ⏳ Planned |
+| Phase 3 | UAVCAN Intrusion Dataset | ⏳ Planned |
+| Phase 4 | Cyber-Physical UAV Dataset | ⏳ Planned |
+
+---
+
+## Datasets
+
+### Phase 1 — CICIDS2017 ✅
+**Canadian Institute for Cybersecurity**
 - ~2.8 million records after preprocessing
 - 80 network traffic features
-- 13 attack categories: BENIGN, DDoS, DoS GoldenEye, DoS Hulk, DoS Slowhttptest, DoS slowloris, FTP-Patator, SSH-Patator, Bot, PortScan, Heartbleed, Infiltration, Web Attack
+- 13 traffic classes: BENIGN, DDoS, DoS GoldenEye, DoS Hulk, DoS Slowhttptest, DoS slowloris, FTP-Patator, SSH-Patator, Bot, PortScan, Heartbleed, Infiltration, Web Attack
 - 70/30 train/test split
 
-> Note: Raw dataset files are excluded from this repo due to size. Download from [UNB CICIDS2017](https://www.unb.ca/cic/datasets/ids-2017.html).
+> Download from [UNB CICIDS2017](https://www.unb.ca/cic/datasets/ids-2017.html)
+
+### Phase 2-4 — UAV Datasets ⏳
+- UAV Attack Dataset (Whelan et al. 2020) — GPS spoofing and MAVLink DoS
+- UAVCAN Intrusion Dataset (Kim et al. 2022) — Flooding, Fuzzy, Replay attacks
+- Cyber-Physical UAV Dataset (Hassler et al. 2023) — DoS, Replay, False Data Injection
 
 ---
 
@@ -39,91 +56,35 @@ The framework addresses three gaps identified in the literature:
 | 1D-CNN | 98.74% | 98.79% | 98.74% | 98.73% |
 | Autoencoder (anomaly) | 85.28% | 69.09% | 45.61% | 54.95% |
 
-**Key Finding:** SHAP identifies different top features per model architecture:
-- Random Forest → **Destination Port** (most influential)
-- 1D-CNN → **Bwd Packets/s** (most influential)
-
-This divergence demonstrates that model architecture shapes XAI explanations — a critical insight for autonomous platform security.
-
 ---
 
 ## XAI Methods Applied
 
-| Method | Type | Applied To |
-|---|---|---|
-| SHAP (KernelExplainer) | Global + Local | Random Forest, 1D-CNN |
-| LIME (TabularExplainer) | Local | Random Forest, 1D-CNN |
-| Grad-CAM / Permutation Importance | TBD | Pending |
+| Method | Type | RF | CNN | AE | Top Feature |
+|---|---|---|---|---|---|
+| SHAP | Global + Local | ✅ | ✅ | ✅ | Destination Port / Bwd Packets/s / FIN Flag Count |
+| LIME | Local | ✅ | ✅ | ✅ | ECE Flag Count / Bwd IAT Max / RST Flag Count |
+| Permutation Importance | Global | ✅ | ✅ | ✅ | Destination Port / Bwd Packets/s / Protocol |
+
+---
+
+## Key Findings (CICIDS2017)
+
+**Finding 1 — Architecture drives XAI output:**
+All three models identify completely different top features despite using the same dataset.
+
+**Finding 2 — SHAP and Permutation agree on supervised models:**
+Both confirm Destination Port (RF) and Bwd Packets/s (CNN) as top features.
+
+**Finding 3 — Anomaly detection produces unstable explanations:**
+All three XAI methods disagreed entirely on the Autoencoder top feature:
+- SHAP → FIN Flag Count
+- LIME → RST Flag Count  
+- Permutation → Protocol
+
+**Finding 4 — Grad-CAM excluded:**
+Grad-CAM is incompatible with tabular network traffic data — this exclusion is itself a benchmark finding.
 
 ---
 
 ## Repository Structure
-
-```
-TCSS499_Research_Benchmark/
-├── data/
-│   └── (data loading and preprocessing scripts)
-├── notebooks/
-│   ├── 01_preprocessing.ipynb
-│   ├── 02_random_forest.ipynb
-│   ├── 03_cnn_1d.ipynb
-│   ├── 04_autoencoder.ipynb
-│   ├── 05_shap_rf.ipynb
-│   ├── 06_shap_cnn.ipynb
-│   ├── 07_lime_rf.ipynb
-│   └── 08_lime_cnn.ipynb
-├── results/
-│   ├── rf_results.json
-│   ├── cnn_results.json
-│   ├── ae_results.json
-│   ├── shap_global.png
-│   ├── shap_cnn_global.png
-│   ├── lime_results.json
-│   └── ae_reconstruction_error.png
-├── .gitignore
-└── README.md
-```
-
-> Large model files (`.npy`, `.joblib`, `.keras`) are excluded via `.gitignore`.
-
----
-
-## Evaluation Metrics
-
-**ML Metrics:** Accuracy, Precision, Recall, F1-Score
-
-**Software Engineering Metrics (novel contribution):**
-- Maintainability — how easy is the XAI code to update?
-- Integration Effort — how easy is it to add to existing IDS systems?
-- Explanation Clarity — how understandable are the XAI outputs?
-- Reproducibility — can others replicate the exact results?
-
----
-
-## Environment Setup
-
-```bash
-# Create conda environment (Python 3.9 required for TensorFlow compatibility)
-conda create -n cnn_env python=3.9
-conda activate cnn_env
-
-# Install dependencies
-pip install tensorflow scikit-learn shap lime pandas numpy matplotlib joblib
-```
-
----
-
-## Related Work
-
-This benchmark builds on and extends:
-- Arreche et al. (2024) — E-XAI framework (SHAP + LIME, no Grad-CAM, no SE metrics)
-- Patil et al. (2022) — LIME on CICIDS2017 (no SHAP or Grad-CAM comparison)
-- Uysal & Kose (2024) — SHAP + LIME on CICIDS2017 (no autonomous platform focus)
-
-See the full comparison table in the research paper (in progress).
-
----
-
-## Acknowledgements
-
-This research is conducted under the supervision of Dr. Damiano Torre as part of TCSS 499 Independent Study at the University of Washington Tacoma. Funded through UW Workday student research position.
