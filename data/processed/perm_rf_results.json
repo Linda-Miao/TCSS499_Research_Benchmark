@@ -1,0 +1,24 @@
+{
+  "Model": "RandomForest",
+  "xai_method": "Permutation Importance",
+  "sample_size": 10000,
+  "n_repeats": 10,
+  "time_seconds": 151.53,
+  "top_15_features": {
+    "Destination Port": 0.01422,
+    "Init_Win_bytes_forward": 0.01338,
+    "Fwd IAT Min": 0.00464,
+    "Source Port": 0.00207,
+    "URG Flag Count": 0.0005,
+    "Fwd Header Length.1": 0.00032,
+    "Fwd Header Length": 0.00015,
+    "Init_Win_bytes_backward": 0.00015,
+    "Flow Duration": 0.00015,
+    "Fwd IAT Total": 0.00012,
+    "Flow IAT Max": 0.00012,
+    "Fwd IAT Max": 0.0001,
+    "Fwd IAT Mean": 0.0001,
+    "Flow IAT Min": 0.0001,
+    "Flow IAT Std": 0.0001
+  }
+}

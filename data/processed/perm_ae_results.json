@@ -1,0 +1,25 @@
+{
+  "model": "Autoencoder",
+  "xai_method": "Permutation Importance",
+  "sample_size": 10000,
+  "n_repeats": 10,
+  "time_seconds": 131.55,
+  "threshold": 0.060618,
+  "top_15_features": {
+    "Protocol": 0.14184,
+    "Flow Duration": 0.13033,
+    "Fwd IAT Total": 0.12751,
+    "Bwd IAT Total": 0.10335,
+    "PSH Flag Count": 0.09779,
+    "Average Packet Size": 0.09275,
+    "Packet Length Mean": 0.08985,
+    "Flow IAT Max": 0.08286,
+    "Avg Bwd Segment Size": 0.08276,
+    "Bwd Packet Length Mean": 0.08197,
+    "Fwd IAT Max": 0.08046,
+    "Flow IAT Std": 0.07951,
+    "Idle Max": 0.0787,
+    "Idle Mean": 0.07609,
+    "Packet Length Std": 0.07468
+  }
+}

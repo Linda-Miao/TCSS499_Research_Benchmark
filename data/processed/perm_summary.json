@@ -1,0 +1,30 @@
+{
+  "dataset": "CICIDS2017",
+  "xai_method": "Permutation Importance",
+  "rf_top5": [
+    "Destination Port",
+    "Init_Win_bytes_forward",
+    "Fwd IAT Min",
+    "Source Port",
+    "URG Flag Count"
+  ],
+  "cnn_top5": [
+    "Bwd Packets/s",
+    "Protocol",
+    "ACK Flag Count",
+    "Down/Up Ratio",
+    "Min Packet Length"
+  ],
+  "ae_top5": [
+    "Protocol",
+    "Flow Duration",
+    "Fwd IAT Total",
+    "Bwd IAT Total",
+    "PSH Flag Count"
+  ],
+  "findings": {
+    "rf_perm_vs_shap": "AGREE on #1 (Destination Port)",
+    "cnn_perm_vs_shap": "AGREE on #1 (Bwd Packets/s)",
+    "ae_perm_vs_shap": "DISAGREE \u2014 Perm: Protocol, SHAP: FIN Flag Count, LIME: RST Flag Count"
+  }
+}
